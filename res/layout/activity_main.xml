@@ -16,16 +16,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="31dp"
         android:text="Submit" />
-
-    <EditText
-        android:id="@+id/editTextCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:hint="Enter Categories"
-        android:ems="10" />
-
     <Button
         android:id="@+id/camera"
         android:layout_width="wrap_content"
@@ -86,5 +76,25 @@
         android:layout_marginBottom="24dp"
         android:hint = "Type Question Here"
         android:ems="10" />
+
+    <EditText
+        android:id="@+id/editTextCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/titleText"
+        android:layout_below="@+id/titleText"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="Enter Category" />
+
+    <EditText
+        android:id="@+id/editTextTags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextCategory"
+         android:layout_below="@+id/editTextCategory"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="Enter Tags" />
 
 </RelativeLayout>
