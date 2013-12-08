@@ -49,15 +49,6 @@
         android:src="@drawable/ocpquestions_circleicon" />
 
     <EditText
-        android:id="@+id/EditText02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/EditText01"
-        android:layout_below="@+id/EditText01"
-        android:ems="10"
-        android:hint="What I know about it" />
-
-    <EditText
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,7 +79,7 @@
         android:hint="Enter Tags" />
 
     <EditText
-        android:id="@+id/EditText0"
+        android:id="@+id/EditText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editTextTags"
@@ -121,5 +112,14 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="title" />
+
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/EditText1"
+        android:layout_below="@+id/EditText1"
+        android:ems="10"
+        android:hint="What I know about it" />
 
 </RelativeLayout>
