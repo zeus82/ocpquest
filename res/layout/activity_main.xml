@@ -7,15 +7,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp"
-        android:text="Submit" />
     <Button
         android:id="@+id/camera"
         android:layout_width="wrap_content"
@@ -58,24 +49,52 @@
         android:src="@drawable/ocpquestions_circleicon" />
 
     <EditText
-        android:id="@+id/titleText"
+        android:id="@+id/EditText02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ImageView03"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:hint="title"
-        android:ems="10" />
+        android:layout_alignLeft="@+id/EditText01"
+        android:layout_below="@+id/EditText01"
+        android:ems="10"
+        android:hint="What I know about it" />
 
     <EditText
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/submit"
+        android:layout_alignLeft="@+id/EditText02"
+        android:layout_below="@+id/EditText02"
+        android:ems="10"
+        android:hint="What I want to know about it" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/EditText03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/question"
+        android:layout_below="@+id/question"
+        android:ems="10"
+        android:hint="What I want to do about it" />
+
+    <EditText
+        android:id="@+id/editTextTags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editTextCategory"
-        android:layout_marginBottom="24dp"
-        android:hint = "Type Question Here"
-        android:ems="10" />
+        android:layout_below="@+id/editTextCategory"
+        android:ems="10"
+        android:hint="Enter Tags" />
+
+    <EditText
+        android:id="@+id/EditText0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextTags"
+        android:layout_below="@+id/editTextTags"
+        android:ems="10"
+        android:hint="What it is?" />
 
     <EditText
         android:id="@+id/editTextCategory"
@@ -83,18 +102,24 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/titleText"
         android:layout_below="@+id/titleText"
-        android:layout_marginTop="19dp"
         android:ems="10"
         android:hint="Enter Category" />
 
-    <EditText
-        android:id="@+id/editTextTags"
+    <Button
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextCategory"
-         android:layout_below="@+id/editTextCategory"
-        android:layout_centerVertical="true"
+        android:layout_alignBottom="@+id/ImageView01"
+        android:layout_centerHorizontal="true"
+        android:text="Submit" />
+
+    <EditText
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ImageView02"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Enter Tags" />
+        android:hint="title" />
 
 </RelativeLayout>

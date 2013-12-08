@@ -23,6 +23,10 @@ public class MainActivity extends Activity {
 	EditText category;
 	EditText title;
 	EditText tags;
+	EditText whatItIs;
+	EditText whatIKnowAboutIt;
+	EditText whatIWantToKnowAboutIt;
+	EditText whatIWantToDoAboutIt;
 	Button camera;
 	Button submit;
 	String emailContent;
