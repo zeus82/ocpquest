@@ -74,12 +74,13 @@ public class MainActivity extends Activity {
 				i.putExtra(Intent.EXTRA_TEXT   , emailContent);
 				//i.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///mnt/sdcard/Myimage.jpeg"));
 				//i.putExtra(Intent.EXTRA_STREAM, Uri.parse(outputFileUri.getPath()));
-				i.setType("image/*");
+				i.setType("image/jpeg");
+				
 				i.putExtra(Intent.EXTRA_STREAM, outputFileUri);
 				try {
 				    startActivity(Intent.createChooser(i, "Send mail..."));
 				} catch (android.content.ActivityNotFoundException ex) {
-				    Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "There are no email clients installed." + "ex:  " + ex.getMessage(), Toast.LENGTH_SHORT).show();
 				}
 				
 			}});
@@ -96,11 +97,12 @@ public class MainActivity extends Activity {
 				String path = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_PICTURES + "/" + dtMili + ".jpg";
 			    File file = new File(path);
 			    outputFileUri = Uri.fromFile( file );
-			   Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
+			    Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
 				//Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-				startActivityForResult(intent, -1);
+			    intent.putExtra( MediaStore.EXTRA_OUTPUT, outputFileUri );
+			    startActivityForResult(intent, -1);
 				//String outputFileUri = null ;
-				intent.putExtra( MediaStore.EXTRA_OUTPUT, outputFileUri );
+				
 				
 				
 			}});
