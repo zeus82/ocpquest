@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 	String emailCategory;
 	String emailTags;
 	String emailQuestion;
-	String outputFileUri= null;
+	Uri outputFileUri= null;
 	
 //	long dtMili = System.currentTimeMillis();
  
@@ -74,6 +74,7 @@ public class MainActivity extends Activity {
 				i.putExtra(Intent.EXTRA_TEXT   , emailContent);
 				//i.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///mnt/sdcard/Myimage.jpeg"));
 				//i.putExtra(Intent.EXTRA_STREAM, Uri.parse(outputFileUri.getPath()));
+				i.setType("image/*");
 				i.putExtra(Intent.EXTRA_STREAM, outputFileUri);
 				try {
 				    startActivity(Intent.createChooser(i, "Send mail..."));
@@ -92,25 +93,15 @@ public class MainActivity extends Activity {
 				//cam.startPreview();
 				//outputFileUri = "/storage/image";
 				long dtMili = System.currentTimeMillis();
-				String path = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_PICTURES + "/" + dtMili + ".JPG";
+				String path = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_PICTURES + "/" + dtMili + ".jpg";
 			    File file = new File(path);
-			    Uri outputFileUri = Uri.fromFile( file );
+			    outputFileUri = Uri.fromFile( file );
 			   Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
 				//Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				startActivityForResult(intent, -1);
 				//String outputFileUri = null ;
 				intent.putExtra( MediaStore.EXTRA_OUTPUT, outputFileUri );
 				
-				/*Intent i = new Intent(Intent.ACTION_SEND);
-				i.setType("message/rfc822");
-				i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"mave560hima@post.wordpress.com"});
-				i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-				i.putExtra(Intent.EXTRA_TEXT   , "body of email");
-				try {
-				    startActivity(Intent.createChooser(i, "Send mail..."));
-				} catch (android.content.ActivityNotFoundException ex) {
-				    Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-				}*/
 				
 			}});
 		//categoriesLabel.set

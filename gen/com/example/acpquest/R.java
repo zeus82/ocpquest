@@ -25,18 +25,19 @@ public final class R {
         public static final int ocpquestions_circleicon=0x7f020001;
     }
     public static final class id {
-        public static final int ImageView01=0x7f080005;
-        public static final int ImageView02=0x7f080006;
-        public static final int ImageView03=0x7f080007;
-        public static final int action_settings=0x7f08000a;
-        public static final int camera=0x7f080002;
-        public static final int editText1=0x7f080003;
-        public static final int editTextCategory=0x7f080001;
-        public static final int imageView1=0x7f080004;
-        public static final int item1=0x7f08000b;
-        public static final int question=0x7f080009;
+        public static final int ImageView01=0x7f080004;
+        public static final int ImageView02=0x7f080005;
+        public static final int ImageView03=0x7f080006;
+        public static final int action_settings=0x7f08000b;
+        public static final int camera=0x7f080001;
+        public static final int editText1=0x7f080002;
+        public static final int editTextCategory=0x7f080009;
+        public static final int editTextTags=0x7f08000a;
+        public static final int imageView1=0x7f080003;
+        public static final int item1=0x7f08000c;
+        public static final int question=0x7f080008;
         public static final int submit=0x7f080000;
-        public static final int titleText=0x7f080008;
+        public static final int titleText=0x7f080007;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
