@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.MediaStore.Images;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,11 +31,14 @@ public class MainActivity extends Activity {
 	String emailCategory;
 	String emailTags;
 	String emailQuestion;
-
-	String path = Environment.getExternalStorageDirectory() + "/CameraImages/example.jpg";
-    File file = new File(path);
-    Uri outputFileUri = Uri.fromFile( file );
-    Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
+	String outputFileUri= null;
+	
+//	long dtMili = System.currentTimeMillis();
+ 
+//	String path = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_PICTURES + "/" + dtMili + ".JPG";
+//    File file = new File(path);
+//    Uri outputFileUri = Uri.fromFile( file );
+ //  Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
 	//Camera cam;
 	
 	@Override
@@ -50,7 +54,6 @@ public class MainActivity extends Activity {
 		emailContent = "";
 		submit = (Button) findViewById(R.id.submit);
 		submit.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View v) {
 				//catArray = new ArrayList();
@@ -61,7 +64,7 @@ public class MainActivity extends Activity {
 				
 						
 				emailContent += "[category " + emailCategory + "]\n";
-				emailContent += "[tags " + emailTags+ "]\n";
+				emailContent += "[tags " + emailTags + "]\n";
 				emailContent += emailQuestion;
 				
 				Intent i = new Intent(Intent.ACTION_SEND);
@@ -69,6 +72,9 @@ public class MainActivity extends Activity {
 				i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"mave560hima@post.wordpress.com"});
 				i.putExtra(Intent.EXTRA_SUBJECT, emailTitle);
 				i.putExtra(Intent.EXTRA_TEXT   , emailContent);
+				//i.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///mnt/sdcard/Myimage.jpeg"));
+				//i.putExtra(Intent.EXTRA_STREAM, Uri.parse(outputFileUri.getPath()));
+				i.putExtra(Intent.EXTRA_STREAM, outputFileUri);
 				try {
 				    startActivity(Intent.createChooser(i, "Send mail..."));
 				} catch (android.content.ActivityNotFoundException ex) {
@@ -85,9 +91,14 @@ public class MainActivity extends Activity {
 				//cam = Camera.open();
 				//cam.startPreview();
 				//outputFileUri = "/storage/image";
-				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+				long dtMili = System.currentTimeMillis();
+				String path = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_PICTURES + "/" + dtMili + ".JPG";
+			    File file = new File(path);
+			    Uri outputFileUri = Uri.fromFile( file );
+			   Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
+				//Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				startActivityForResult(intent, -1);
-				String outputFileUri = null ;
+				//String outputFileUri = null ;
 				intent.putExtra( MediaStore.EXTRA_OUTPUT, outputFileUri );
 				
 				/*Intent i = new Intent(Intent.ACTION_SEND);
